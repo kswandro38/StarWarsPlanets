@@ -11,6 +11,7 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 - Smooth and responsive UI
 - Optimized for performance
 - Unit Test coverage
+- Instrumentation Test coverage (UI Tests)
 
 ## Technologies Used
 

@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -78,10 +79,21 @@ fun PlanetListScreen(navController: NavController) {
                         },
                         isRefreshing = isRefreshing,
                         modifier = Modifier.testTag("pull_refresh_layout"),
+                        indicator = {
+                            Indicator(
+                                modifier = Modifier
+                                    .align(Alignment.TopCenter)
+                                    .testTag("pull_refresh_indicator"),
+                                isRefreshing = isRefreshing,
+                                state = pullToRefreshState
+                            )
+                        },
                     ){
 
                         // Show Planet cards in LazyColumn
-                        LazyColumn {
+                        LazyColumn(
+                            modifier = Modifier.testTag("planet_lazy_column")
+                        ) {
                             when(loadState.refresh){
                                 is LoadState.Loading -> {
                                     isRefreshing = true
