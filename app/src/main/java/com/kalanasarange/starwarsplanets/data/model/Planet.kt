@@ -40,7 +40,7 @@ data class Planet(
         get() = "${BuildConfig.IMAGES_BASE_URL}id/$id/100"
 
     val imageUrl: String
-        get() = "${BuildConfig.IMAGES_BASE_URL}id/$id/500/500"
+        get() = "${BuildConfig.IMAGES_BASE_URL}id/$id/800/600"
 
     fun getLastDigitFromUrl(): Int {
         // Regex to find the last digits
