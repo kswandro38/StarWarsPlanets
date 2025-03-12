@@ -34,9 +34,3 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 ## API Integration
 
 This app retrieves planet data from the **Star Wars API ([SWAPI](https://swapi.dev/))**.
-
-## App in action
-<img src="https://github.com/kswandro38/StarWarsPlanets/blob/main/Demo1.gif" width="300" alt="Happy Path behaviour">
-
-<img src="https://github.com/kswandro38/StarWarsPlanets/blob/main/Demo2.gif" width="300" alt="Fallback behaviour">
-
