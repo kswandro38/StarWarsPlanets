@@ -31,6 +31,17 @@ import com.kalanasarange.starwarsplanets.ui.components.PlantItemCard
 import com.kalanasarange.starwarsplanets.ui.navigation.Screen
 import com.kalanasarange.starwarsplanets.ui.theme.MyApplicationTheme
 
+/**
+ * [PlanetListScreen] is a composable function that displays a list of planets fetched from a remote source.
+ * It utilizes Paging 3 library for efficient data loading and display.
+ *
+ * @param navController The navigation controller used to navigate to the planet details screen.
+ *
+ * Functionality:
+ * - **Fetches Planet Data**: Uses [PlanetListViewModel] to fetch a list of planets using Paging 3.
+ * - **Displays Planet List**: Displays the fetched planets in a [LazyColumn], each represented by a [PlantItemCard].
+ * - **Pull-to-Refresh**: Implements a pull-to-refresh functionality using [PullToRefreshBox] and [rememberPullToRefreshState].
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -56,15 +67,20 @@ fun PlanetListScreen(navController: NavController) {
                         .fillMaxSize()
                         .background(Color.White)
                 ) {
+                    // Enable pull-to-refresh to reload data
                     PullToRefreshBox(
                         state = pullToRefreshState,
                         onRefresh = {
                             isRefreshing = true
+
+                            // Ask page-source to refresh data when pull-to-refresh
                             planets.refresh()
                         },
                         isRefreshing = isRefreshing,
                         modifier = Modifier.testTag("pull_refresh_layout"),
                     ){
+
+                        // Show Planet cards in LazyColumn
                         LazyColumn {
                             when(loadState.refresh){
                                 is LoadState.Loading -> {
@@ -91,6 +107,8 @@ fun PlanetListScreen(navController: NavController) {
                                 }
                             }
                         }
+
+                        // Show error dialog if something went wrong
                         ErrorBottomSheet(
                             isVisible = isError,
                             message = errorMessage ?: stringResource(R.string.error_common),

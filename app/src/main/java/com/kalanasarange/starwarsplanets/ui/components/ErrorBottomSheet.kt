@@ -26,6 +26,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kalanasarange.starwarsplanets.R
 
+/**
+ * Displays an error bottom sheet with a custom message and a retry button.
+ *
+ * @param isVisible Controls the visibility of the bottom sheet. When true, the bottom sheet is shown.
+ *                  When false, the bottom sheet is hidden.
+ * @param message The error message to be displayed in the bottom sheet. Defaults to a common error message
+ *                defined in `R.string.error_common`.
+ * @param buttonText The text to be displayed on the retry button. Defaults to "Retry" defined in
+ *                  `R.string.error_button_retry`.
+ * @param buttonCallback A callback function that is invoked when the retry button is clicked.
+ *                       Typically used to trigger a retry action. Defaults to an empty lambda.
+ *
+ * Example Usage:
+ * ```
+ *   ErrorBottomSheet(
+ *         isVisible = true,
+ *         message = (responseState as ResponseState.Error).errorMessage,
+ *         buttonText = stringResource(R.string.error_button_retry),
+ *         buttonCallback = {
+ *             isRefreshing = true
+ *             viewModel.loadPlanetDetails(planetId)
+ *         }
+ *     )
+ * ```
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ErrorBottomSheet(

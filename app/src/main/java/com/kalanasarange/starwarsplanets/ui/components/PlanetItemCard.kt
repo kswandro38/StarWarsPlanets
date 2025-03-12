@@ -24,6 +24,32 @@ import coil.compose.AsyncImage
 import com.kalanasarange.starwarsplanets.R
 import com.kalanasarange.starwarsplanets.data.model.Planet
 
+/**
+ * Composable function that displays a card representing a planet item.
+ *
+ * This card shows a planet's thumbnail image, name, and climate information.
+ * It's designed to be used in a list or grid to display multiple planet items.
+ * Clicking the card triggers a navigation callback.
+ *
+ * @param planet The [Planet] data object containing information about the planet to display.
+ * @param modifier Optional [Modifier] to customize the layout and appearance of the card.
+ *                 Defaults to [Modifier].
+ * @param navigationCallback A lambda function that is invoked when the card is clicked.
+ *                           It receives the planet's ID as a parameter, allowing for navigation
+ *                           to a detailed view of the planet. Defaults to an empty lambda.
+ *
+ * Example Usage:
+ * ```
+ * PlantItemCard(
+ *     planet = Planet(id = 1, name = "Earth", climate = "Temperate", thumbnailUrl = "url_to_image"),
+ *     modifier = Modifier.padding(16.dp),
+ *     navigationCallback = { planetId ->
+ *         // Navigate to the details screen for the planet with ID planetId
+ *         println("Navigating to planet with ID: $planetId")
+ *     }
+ * )
+ * ```
+ */
 @Composable
 fun PlantItemCard(planet: Planet, modifier: Modifier = Modifier, navigationCallback: (planetId: Int) -> Unit = {}) {
     Row(

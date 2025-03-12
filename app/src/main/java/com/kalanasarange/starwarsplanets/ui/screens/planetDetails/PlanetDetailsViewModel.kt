@@ -11,6 +11,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * [PlanetDetailsViewModel] is a ViewModel responsible for fetching and providing
+ * details of a specific planet. It interacts with the [PlanetRepository] to
+ * retrieve the planet data and exposes the result as a state flow.
+ *
+ * @property planetRepository The repository responsible for fetching planet data
+ * which inject through hilt
+ */
 @HiltViewModel
 class PlanetDetailsViewModel @Inject constructor(
     private val planetRepository: PlanetRepository

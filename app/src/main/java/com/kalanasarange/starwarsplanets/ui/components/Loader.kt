@@ -12,6 +12,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+/**
+ * A composable function that displays a full-screen loader with a circular progress indicator.
+ *
+ * @param isVisible Boolean flag to control the visibility of the loader.
+ *                  If `true`, the loader is displayed; otherwise, it's hidden.
+ *
+ * Example Usage:
+ * ```
+ *  // Show the loader
+ *  Loader(isVisible = true)
+ *
+ *  // Hide the loader
+ *  Loader(isVisible = false)
+ * ```
+ *
+ * The loader consists of:
+ *  - A white background that fills the entire screen.
+ *  - A black circular progress indicator in the center.
+ *  - The progress indicator has a fixed size of 30dp.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Loader(isVisible: Boolean){

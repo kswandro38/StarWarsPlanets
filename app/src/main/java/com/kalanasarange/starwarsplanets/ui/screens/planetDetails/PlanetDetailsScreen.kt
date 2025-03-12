@@ -41,6 +41,12 @@ import com.kalanasarange.starwarsplanets.ui.components.Header
 import com.kalanasarange.starwarsplanets.ui.components.Loader
 import com.kalanasarange.starwarsplanets.ui.theme.MyApplicationTheme
 
+/**
+ * Displays the detailed information about a specific planet.
+ *
+ * This composable function fetches and displays the details of a planet based on the provided `planetId`.
+ * It utilizes a [PlanetDetailsViewModel] to handle data fetching and manages the UI state
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -53,6 +59,7 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
     LaunchedEffect(Unit) {
         viewModel.loadPlanetDetails(planetId)
 
+        // Collect Planet details API response from flow
         viewModel.planetDetailsResponse.collect { response ->
             responseState = response
         }
@@ -75,12 +82,16 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                 )
 
                 when (responseState) {
-                    is ResponseState.Idle -> {}
+                    is ResponseState.Idle -> {
+                        // Do nothing on idle state
+                    }
                     is ResponseState.Loading -> {
+                        // Show loading state when data loading
                         Loader(true)
                     }
 
                     is ResponseState.Success -> {
+                        // Successfully fetched the planet data & manipulate the UI
                         planet = (responseState as ResponseState.Success<Planet>).data
                         isRefreshing = false
                         Box(
@@ -89,6 +100,7 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                                 .fillMaxSize()
                         ) {
                             Column {
+                                // Planet Image
                                 AsyncImage(
                                     model = planet?.imageUrl,
                                     contentDescription = "Planet Image",
@@ -98,6 +110,8 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                                         .height(300.dp)
                                         .background(Color.Gray)
                                 )
+
+                                // Planet Name
                                 Text(
                                     text = planet?.name ?: "",
                                     fontSize = 35.sp,
@@ -106,6 +120,8 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                                         top = 8.dp
                                     )
                                 )
+
+                                // Orbital period text (days)
                                 Text(text = stringResource(R.string.orbital_Period, planet?.orbitalPeriod ?: "-"),
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(
@@ -113,6 +129,8 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                                         top = 5.dp
                                     )
                                 )
+
+                                //Gravity text
                                 Text(text = stringResource(R.string.gravity, planet?.gravity ?: R.string.unknown),
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(
@@ -125,6 +143,7 @@ fun PlanetDetailsScreen(navController: NavController, planetId: Int) {
                     }
 
                     is ResponseState.Error -> {
+                        // Something went worng and show the error popup
                         ErrorBottomSheet(
                             isVisible = true,
                             message = (responseState as ResponseState.Error).errorMessage,
