@@ -10,6 +10,7 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 - Tap on a planet to see detailed information
 - Smooth and responsive UI
 - Optimized for performance
+- Unit Test coverage
 
 ## Technologies Used
 
@@ -35,7 +36,7 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 This app retrieves planet data from the **Star Wars API ([SWAPI](https://swapi.dev/))**.
 
 ## App in action
-(![Demo1.gif](D:\Projects\StarWarsPlanets\Demo1.gif "Happy Path behaviour") "Logo Title Text 1")
+(![Demo1](https://github.com/kswandro38/StarWarsPlanets/blob/main/Demo1.gif) "Happy Path behaviour")
 
 
 
