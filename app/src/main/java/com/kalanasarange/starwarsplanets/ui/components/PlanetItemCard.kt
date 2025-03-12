@@ -1,6 +1,5 @@
 package com.kalanasarange.starwarsplanets.ui.components
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -24,8 +23,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.kalanasarange.starwarsplanets.R
 import com.kalanasarange.starwarsplanets.data.model.Planet
-
-private const val TAG = "PlanetItemCard"
 
 @Composable
 fun PlantItemCard(planet: Planet, modifier: Modifier = Modifier, navigationCallback: (planetId: Int) -> Unit = {}) {

@@ -7,10 +7,6 @@ plugins {
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.parcelize)
-
-//    id("org.jetbrains.kotlin.kapt")
-//    id("com.google.dagger.hilt.android")
-//    id("kotlin-parcelize")
 }
 
 android {
@@ -28,8 +24,7 @@ android {
         buildConfigField("String", "BASE_URL", project.findProperty("BASE_URL") as String)
         buildConfigField("String", "IMAGES_BASE_URL", project.findProperty("IMAGES_BASE_URL") as String)
 
-//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner = "com.kalanasarange.starwarsplanets.HiltTestRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -110,7 +105,6 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.kotlin)
-    testImplementation(libs.mockito.inline)
     testImplementation(libs.core.testing)
     testImplementation(libs.paging.testing)
     testImplementation(libs.paging.common)
