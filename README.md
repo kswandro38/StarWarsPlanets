@@ -19,6 +19,7 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 - **MVVM Architecture**: Clean and maintainable code
 - **Kotlin Flow**: Handling data streams
 - **Hilt**: Dependency Injection
+- **Jetpack Paging 3**: Handling Planet list pagination
 
 ## Installation
 
@@ -31,5 +32,10 @@ Star Wars Planet Application is a simple Android app that displays a list of pla
 
 ## API Integration
 
-This app retrieves planet data from the **Star Wars API (SWAPI)**.
+This app retrieves planet data from the **Star Wars API ([SWAPI](https://swapi.dev/))**.
+
+## App in action
+(![Demo1.gif](D:\Projects\StarWarsPlanets\Demo1.gif "Happy Path behaviour") "Logo Title Text 1")
+
+
 
