@@ -1,0 +1,7 @@
+package com.kalanasarange.starwarsplanets
+
+import com.kalanasarange.starwarsplanets.application.StarWarsApplication
+import dagger.hilt.android.testing.CustomTestApplication
+
+@CustomTestApplication(StarWarsApplication::class)
+interface CustomTestHiltApplication

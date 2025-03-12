@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SW Planets</string>
+
+<!--    PlanetList Screen-->
+    <string name="planet_list_screen_title">StarWars Planets</string>
+    <string name="climate">Climate: %1$s</string>
+
+    <!--    Planet Details Screen-->
+    <string name="planet_details_screen_title">Planet Details</string>
+    <string name="orbital_Period">Orbital Period: %1$s days</string>
+    <string name="gravity">Gravity: %1$s</string>
+    <string name="unknown">Unknown</string>
+
+    <!--Common-->
+    <string name="error_common">Something went wrong!</string>
+    <string name="error_button_retry">Retry</string>
+
+<!--    Content descriptors-->
+    <string name="cd_error_image">Error Image</string>
+</resources>
